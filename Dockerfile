@@ -23,7 +23,7 @@ RUN apt update && \
 
 COPY . ./src/<name>_ros2
 
-RUN pip3 install ./src/<name>_ros2 && \
+RUN python3 -m pip install ./src/<name>_ros2 && \
     : "Install the model" && \
     python3 -c "from transformers import AutoFeatureExtractor; AutoFeatureExtractor.from_pretrained('${MODEL_NAME}')" && \
     colcon build
